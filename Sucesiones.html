@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cuestionario: Límites de sucesiones</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; }
+  h2 { color: #333; }
+  .question { margin-bottom: 20px; }
+  .options label { display: block; margin: 5px 0; }
+  #submitBtn { padding: 10px 20px; font-size: 16px; }
+  #result { margin-top: 20px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2>Cuestionario: Límites de sucesiones al infinito</h2>
+
+<form id="quizForm">
+  <div class="question">
+    <p>1. La sucesión a_n = 1/n tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="b"> a) 1</label>
+      <label><input type="radio" name="q1" value="a"> b) 0</label>
+      <label><input type="radio" name="q1" value="c"> c) ∞</label>
+      <label><input type="radio" name="q1" value="d"> d) No existe</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>2. La sucesión b_n = 3n/(n+2) tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="c"> a) 0</label>
+      <label><input type="radio" name="q2" value="b"> b) 1</label>
+      <label><input type="radio" name="q2" value="c"> c) 3</label>
+      <label><input type="radio" name="q2" value="d"> d) ∞</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>3. La sucesión c_n = (-1)^n tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="a"> a) 1</label>
+      <label><input type="radio" name="q3" value="b"> b) -1</label>
+      <label><input type="radio" name="q3" value="c"> c) 0</label>
+      <label><input type="radio" name="q3" value="d"> d) No existe</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>4. La sucesión d_n = (5n^2 + 1)/(2n^2 + 7) tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="b"> a) 0</label>
+      <label><input type="radio" name="q4" value="a"> b) 5/2</label>
+      <label><input type="radio" name="q4" value="c"> c) 2/5</label>
+      <label><input type="radio" name="q4" value="d"> d) ∞</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>5. La sucesión e_n = (7n+1)/(n^2 + 3) tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="b"> a) 0</label>
+      <label><input type="radio" name="q5" value="a"> b) 7</label>
+      <label><input type="radio" name="q5" value="c"> c) ∞</label>
+      <label><input type="radio" name="q5" value="d"> d) No existe</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>6. La sucesión f_n = n^3/(n^3 + 4) tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q6" value="b"> a) 0</label>
+      <label><input type="radio" name="q6" value="a"> b) 1</label>
+      <label><input type="radio" name="q6" value="c"> c) ∞</label>
+      <label><input type="radio" name="q6" value="d"> d) No existe</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>7. La sucesión g_n = (-1)^n/n tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q7" value="a"> a) 0</label>
+      <label><input type="radio" name="q7" value="b"> b) 1</label>
+      <label><input type="radio" name="q7" value="c"> c) -1</label>
+      <label><input type="radio" name="q7" value="d"> d) No existe</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>8. La sucesión h_n = 10n^2/(n^3 + 1) tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q8" value="a"> a) 0</label>
+      <label><input type="radio" name="q8" value="b"> b) 10</label>
+      <label><input type="radio" name="q8" value="c"> c) ∞</label>
+      <label><input type="radio" name="q8" value="d"> d) 1</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>9. La sucesión k_n = (2n^2 + 3)/(5n^2 + 1) tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q9" value="c"> a) 0</label>
+      <label><input type="radio" name="q9" value="b"> b) 1</label>
+      <label><input type="radio" name="q9" value="a"> c) 2/5</label>
+      <label><input type="radio" name="q9" value="d"> d) ∞</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>10. La sucesión m_n = n tiende a:</p>
+    <div class="options">
+      <label><input type="radio" name="q10" value="c"> a) 0</label>
+      <label><input type="radio" name="q10" value="b"> b) 1</label>
+      <label><input type="radio" name="q10" value="a"> c) ∞</label>
+      <label><input type="radio" name="q10" value="d"> d) No existe</label>
+    </div>
+  </div>
+
+  <button type="button" id="submitBtn">Enviar respuestas</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  const correctAnswers = {
+    q1: 'b', q2: 'c', q3: 'd', q4: 'b', q5: 'a',
+    q6: 'b', q7: 'a', q8: 'a', q9: 'a', q10: 'c'
+  };
+
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    let score = 0;
+    const form = document.getElementById('quizForm');
+    for (let q in correctAnswers) {
+      const selected = form[q].value;
+      if (selected === correctAnswers[q]) score++;
+    }
+    document.getElementById('result').innerText = `Tu calificación: ${score}/10`;
+  });
+</script>
+
+</body>
+</html>
